@@ -3,6 +3,7 @@
 This repository contains the **reproduction report** for *VulRepair: A T5-Based Automated Software Vulnerability Repair*. Our study investigates the reproducibility of VulRepair and analyzes how pre-training, tokenization, and dataset quality affect its performance.
 
 📎 [Code Repository (Training Scripts, Logs, Pipeline)](https://github.com/rinaxosman/VulRepair)
+🔗 [Original VulRepair Repository (by Fu et al.)](https://github.com/awsm-research/VulRepair)
 
 ---
 
