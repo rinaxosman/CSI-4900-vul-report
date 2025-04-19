@@ -1,0 +1,90 @@
+\documentclass[sigconf,nonacm]{acmart}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\title{Revisiting VulRepair: A Reproduction and Evaluation of T5-based Software Vulnerability Repair Models}
+
+\author{Yushika Jhundoo}
+\affiliation{% 
+  \institution{University of Ottawa}
+  \city{Ottawa}
+  \country{Canada}
+}
+\email{pjhun035@uottawa.ca}
+
+\author{Rina Osman}
+\affiliation{% 
+  \institution{University of Ottawa}
+  \city{Ottawa}
+  \country{Canada}
+}
+\email{rosma012@uottawa.ca}
+
+\author{Olena Naim}
+\affiliation{% 
+  \institution{University of Ottawa}
+  \city{Ottawa}
+  \country{Canada}
+}
+\email{onaim017@uottawa.ca}
+
+\author{Professor Paria Shirani}
+\affiliation{% 
+  \institution{University of Ottawa}
+  \city{Ottawa}
+  \country{Canada}
+}
+\email{pshirani@uottawa.ca}
+
+\begin{document}
+
+\begin{abstract}
+We revisit and replicate the VulRepair study, a T5-based neural machine translation model designed to automatically repair software vulnerabilities. VulRepair was originally proposed as an NMT-based repair system leveraging pre-training and BPE tokenization to overcome key limitations in earlier models such as VRepair. These include limited training data, word-level tokenization, and basic transformer architectures.
+
+In our work, we re-implement all ten VulRepair model variants and conduct a comprehensive evaluation to address four key research questions (RQs): model accuracy (RQ1), the impact of pre-training (RQ2), the benefits of BPE tokenization (RQ3), and the contribution of each VulRepair component (RQ4). To ensure fairness, we evaluate all models on a deduplicated version of the CVEFixes dataset, removing overlaps between training and test sets that can inflate performance.
+
+Our findings confirm the importance of VulRepair’s architectural choices but show that deduplication affects reported accuracy in inconsistent ways. While some models perform worse without duplicates, others actually improve. Notably, Models M1 and M2 were not impacted by deduplication, as their data did not contain overlap. On this cleaner dataset, our best model (M1) still achieved a high perfect prediction rate of 46.01\%, closely aligning with the 44\% reported in the original paper. Removing both pre-training and BPE dropped performance to 0.35\%, confirming their critical roles.
+
+This reproduction study contributes insights into the reproducibility of VulRepair and shows how dataset quality influences the evaluation of vulnerability repair systems. We also release our full implementation and pipeline to support future replication efforts.
+\end{abstract}
+
+
+
+\keywords{Vulnerability Repair, T5, Transformer, Dataset Deduplication, Neural Machine Translation, Software Engineering, Reproducibility}
+
+\maketitle
+
+\section{INTRODUCTION}
+\input{sections/1_introduction}
+
+\section{BACKGROUND & PROBLEM MOTIVATION}
+\input{sections/2_background}
+
+\section{VULREPAIR: A T5-BASED VULNERABILITY REPAIR APPROACH}
+\input{sections/3_vulrepair}
+
+\section{EXPERIMENTAL DESIGN}
+\input{sections/4_methodology}
+
+\section{EXPERIMENTAL RESULTS}
+\input{sections/5_results}
+
+\section{Discussion}
+\input{sections/6_discussion}
+
+\section{Related Work}
+\input{sections/7_related}
+
+\section{Threats to Validity}
+\input{sections/8_threats}
+
+\section{Conclusion}
+\input{sections/9_conclusion}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\end{document}
